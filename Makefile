@@ -32,26 +32,26 @@ SRCS = src/ft_printf.c \
 	   src/handlers/handle_wstr.c
 
 LIBFT_FUNS =	putchar_fd \
-		putchar_fd \
-		putstr_fd \
-		putnbrbase_fd \
-		putnstr_fd \
-		putwchar_fd \
-		memset \
-		strchr \
-		putstr \
-		strlen \
-		putnstr \
-		bzero \
-		isdigit \
-		memalloc \
-		putchar \
-		max \
-		tolower \
-		nstrlen \
-		putwchar \
-		putnwstr \
-		putnbrbase \
+				putchar_fd \
+				putstr_fd \
+				putnbrbase_fd \
+				putnstr_fd \
+				putwchar_fd \
+				memset \
+				strchr \
+				putstr \
+				strlen \
+				putnstr \
+				bzero \
+				isdigit \
+				memalloc \
+				putchar \
+				max \
+				tolower \
+				nstrlen \
+				putwchar \
+				putnwstr \
+				putnbrbase \
 
 CFLAGS += $(foreach fun,$(LIBFT_FUNS),-Dft_$(fun)=ft_printf_libft_$(fun))
 
@@ -62,7 +62,7 @@ CP = cp
 
 RM = rm -f
 
-all: $(NAME) $@
+all: $(NAME)
 
 $(OBJS): | obj
 
@@ -79,7 +79,7 @@ obj/libft/%.o: libft/%.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 $(NAME): $(OBJS)
-	$(AR) -rcs $(NAME) $@
+	$(AR) -rcs $(NAME) $^
 
 clean:
 	$(RM) $(OBJS)

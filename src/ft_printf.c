@@ -1,4 +1,5 @@
 
+#include <stdio.h>
 #include <stdarg.h>
 #include <libft.h>
 #include "ft_printf.h"
@@ -45,12 +46,13 @@ static int		ft_inner_printf(const char *format, va_list *args, size_t chrs)
 	}
 	else if (next_arg > format)
 	{
-		ft_putnstr(format, next_arg - format);
-		return (ft_inner_printf(next_arg, args, chrs + (next_arg - format)));
+	  ft_putnstr(format, next_arg - format);
+	  printf("yolo");
+	  return (ft_inner_printf(next_arg, args, chrs + (next_arg - format)));
 	}
 	else
 	{
-		ft_bzero(&sarg, sizeof(sarg));
+	  ft_bzero(&sarg, sizeof(sarg));
 		if ((handler_len = handle_arg((char**)&format, args, &sarg)) == -1)
 			return (-1);
 		else
